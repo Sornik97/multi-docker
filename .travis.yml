@@ -1,4 +1,6 @@
 sudo: required
+language: generic
+
 services:
   - docker
 
@@ -20,3 +22,4 @@ after_success:
   - docker push sornik/multi-nginx
   - docker push sornik/multi-server
   - docker push sornik/multi-worker
+
