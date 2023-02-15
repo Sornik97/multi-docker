@@ -13,3 +13,10 @@ after_success:
   - docker build -t sornik/multi-nginx ./nginx
   - docker build -t sornik/multi-server ./server
   - docker build -t sornik/multi-worker ./worker
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push sornik/multi-client
+  - docker push sornik/multi-nginx
+  - docker push sornik/multi-server
+  - docker push sornik/multi-worker
